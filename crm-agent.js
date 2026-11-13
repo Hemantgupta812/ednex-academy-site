@@ -77,17 +77,42 @@
     all.push(lead);
     writeLeads(all);
 
-    // Server par bhejne ki koshish — fail ho to lead local rehti hai, gum nahi hoti
-    if (CONFIG.CRM_ENDPOINT) {
-      fetch(CONFIG.CRM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(lead)
-      }).catch(function () { /* queued locally, sync later */ });
-    }
+    // Server par bhejne ki koshish — fail ho to lead local queue mein rehti hai, gum nahi hoti
+    sendToServer(lead);
 
     console.log('[CRM Agent] Lead captured:', lead);
     return lead;
+  }
+
+
+  // ---------- server par bhejna (Google Apps Script / koi bhi webhook) ----------
+  // Apps Script ke CORS restrictions ki wajah se GET + query string sabse reliable hai.
+  // POST pehle try hota hai; fail ho to GET fallback; woh bhi fail ho to local queue.
+  function sendToServer(lead) {
+    if (!CONFIG.CRM_ENDPOINT) return;
+
+    var payload = encodeURIComponent(JSON.stringify(lead));
+    var url = CONFIG.CRM_ENDPOINT + (CONFIG.CRM_ENDPOINT.indexOf('?') > -1 ? '&' : '?') + 'payload=' + payload;
+
+    fetch(url, { method: 'GET', mode: 'no-cors' })
+      .then(function () {
+        var all = readLeads();
+        for (var i = 0; i < all.length; i++) {
+          if (all[i].id === lead.id) { all[i].synced = true; break; }
+        }
+        writeLeads(all);
+      })
+      .catch(function () {
+        var all = readLeads();
+        for (var i = 0; i < all.length; i++) {
+          if (all[i].id === lead.id) { all[i].synced = false; break; }
+        }
+        writeLeads(all);
+      });
+  }
+
+  function pendingCount() {
+    return readLeads().filter(function (l) { return l.synced === false; }).length;
   }
 
   // ---------- site ke form ko hook karo (dono forms: popup + page) ----------
@@ -151,7 +176,9 @@
           '<button id="crm-export" style="flex:1;padding:9px;border:none;border-radius:8px;background:#17191d;color:#fff;font-weight:600;cursor:pointer;font-family:inherit">Export CSV</button>' +
           '<button id="crm-clear" style="padding:9px 12px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;cursor:pointer;font-family:inherit">Clear</button>' +
         '</div>' +
-        '<p style="color:#64748b;font-size:11.5px;margin-top:10px;line-height:1.5">CSV ko Ednex-CRM-Tracker.xlsx ke Learners sheet mein paste karein.</p>' +
+        '<p style="color:#64748b;font-size:11.5px;margin-top:10px;line-height:1.5">' +
+          (CONFIG.CRM_ENDPOINT ? 'Server: connected' : 'Server: not set — leads sirf is browser mein') +
+          ' &middot; Pending sync: ' + pendingCount() + '<br>CSV ko Ednex-CRM-Tracker.xlsx ke Learners sheet mein paste karein.</p>' +
       '</div>';
     document.body.appendChild(panel);
     document.getElementById('crm-close').onclick = function () { panel.remove(); };
@@ -168,5 +195,5 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hookForms);
   else hookForms();
 
-  window.EdnexCRM = { captureLead: captureLead, exportCsv: exportCsv, readLeads: readLeads, STAGES: STAGES };
+  window.EdnexCRM = { captureLead: captureLead, exportCsv: exportCsv, readLeads: readLeads, pendingCount: pendingCount, STAGES: STAGES };
 })();
