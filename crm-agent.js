@@ -15,7 +15,7 @@
   'use strict';
 
   var CONFIG = {
-    CRM_ENDPOINT: '',              // e.g. 'https://script.google.com/macros/s/XXXX/exec'
+    CRM_ENDPOINT: 'https://script.google.com/macros/s/AKfycbz5XB687L2uxIcsKGon12CqEZ1JGaAWc0lgQMaWa6PA10jK1rwHutiURvnLR3f8P-jF/exec',
     STORAGE_KEY: 'ednex_crm_leads',
     COUNTER_KEY: 'ednex_crm_counter'
   };
