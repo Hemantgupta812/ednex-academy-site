@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 26" width="100" height="26">
+  <text x="0" y="18" font-family="'Arial Black', Arial, sans-serif" font-size="12" font-weight="900" fill="#002561" letter-spacing="0.5">ERICSSON</text>
+  <g transform="translate(76, 5)">
+    <path d="M0 12l8-12h4l-8 12zM6 12l8-12h4l-8 12zM12 12l8-12h4l-8 12z" fill="#002561"/>
+  </g>
+</svg>

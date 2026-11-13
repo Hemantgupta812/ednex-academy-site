@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" width="140" height="40">
+  <path d="M12 10 C18 10, 22 14, 22 20 C22 26, 18 30, 12 30 C6 30, 2 26, 2 20 C2 14, 6 10, 12 10 Z" fill="#0070AD" opacity="0.15"/>
+  <path d="M14 14 C17 14, 19 16, 19 20 C19 24, 17 26, 14 26 C11 26, 9 24, 9 20 C9 16, 11 14, 14 14 Z" fill="#0070AD"/>
+  <text x="28" y="27" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="20" fill="#0070AD" letter-spacing="-0.3">Capgemini</text>
+</svg>
+

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 28" width="115" height="28">
+  <g transform="translate(2, 4)">
+    <path d="M0 14c0-4 3-7 7-7s7 3 7 7" stroke="#E61E2B" stroke-width="3" fill="none"/>
+    <path d="M7 0v14" stroke="#F58220" stroke-width="3" fill="none"/>
+  </g>
+  <text x="22" y="19" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="13" font-weight="800" fill="#E61E2B">asianpaints</text>
+</svg>
