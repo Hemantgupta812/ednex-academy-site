@@ -1,0 +1,27 @@
+# Ednex Academy — static hosting (Hostinger / Apache)
+# SEO + performance headers. Remove any line here if the host rejects it.
+
+<IfModule mod_headers.c>
+  # HTML: always revalidate so deploys go live instantly, but allow caching
+  # (the previous no-store prevented CDN caching entirely)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # Hashed/versioned assets: cache hard
+  <FilesMatch "\.(css|js|webp|png|jpg|jpeg|gif|svg|woff2|mp4)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Correct type for AI/LLM discovery file
+<IfModule mod_mime.c>
+  AddType text/plain .txt
+</IfModule>

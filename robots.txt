@@ -1,0 +1,48 @@
+# robots.txt for Ednex Academy
+# https://ednexacademy.com/
+
+User-agent: *
+Allow: /
+
+# Disallow backend processing endpoints & temp assets
+Disallow: /api/
+Disallow: /*.php$
+Disallow: /*.zip$
+
+# AI search crawlers: explicitly allowed so Ednex can be cited in
+# ChatGPT, Perplexity, Gemini and Claude answers.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Search Engine Sitemap Index
+Sitemap: https://ednexacademy.com/sitemap.xml
+
+# AI-readable site summary
+# https://ednexacademy.com/llms.txt
