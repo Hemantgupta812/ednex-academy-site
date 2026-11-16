@@ -1,0 +1,22 @@
+# Ednex Academy
+> Career-focused practical training institute in India offering intensive, job-ready
+> programs in Data Analytics, Artificial Intelligence, Cybersecurity, Digital Marketing
+> and Web Development — with hands-on projects and placement support.
+
+## Programs
+- [Digital Marketing Course](https://ednexacademy.com/digital-marketing.html): Advanced Certificate in Digital Marketing — SEO, Google Ads, Meta Ads, GA4, content and growth funnels. 3 months, live online.
+- [Data Analytics Course](https://ednexacademy.com/data-analyst.html): Data analytics and business intelligence with Python, SQL, Power BI and machine learning projects.
+- [Artificial Intelligence Course](https://ednexacademy.com/artificial-intelligence.html): AI and Agentic AI systems, hands-on machine learning and AI application building.
+- [Cyber Security Course](https://ednexacademy.com/cybersecurity.html): Ethical hacking, vulnerability assessment and security operations fundamentals.
+- [Python Course](https://ednexacademy.com/python.html): Python 3 from basics to OOP, web scraping, REST APIs and automation.
+- [SQL Course](https://ednexacademy.com/sql.html): SQL and relational databases for analyst roles.
+- [Micro-Skilled Courses](https://ednexacademy.com/micro-skilled-courses.html): Short, certified, job-oriented skill programs.
+
+## About
+- [About Ednex Academy](https://ednexacademy.com/about.html): Mission, practical learning methodology, faculty standards.
+- [Contact & Admissions](https://ednexacademy.com/contact.html): Counselling, batch schedules, institutional enquiries.
+
+## Contact
+- Phone / WhatsApp: +91 93118 51545
+- Email: hello@ednexacademy.com
+- Hours: Monday–Saturday, 9:00 AM – 7:00 PM IST
